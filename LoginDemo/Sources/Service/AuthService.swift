@@ -1,3 +1,5 @@
+import KeychainAccess
+
 class AuthService {
     
     private let kUsersKey = "Users"
@@ -15,11 +17,16 @@ class AuthService {
     var aurorized: Bool { return self.currentUser != nil }
 
     private let storage: UserDefaults
+    private let keychain: Keychain
     
     //заменить на аус дата для реалма
     
     init(storage: UserDefaults) {
         self.storage = storage
+        
+        self.keychain = Keychain(service: "com.bob.logindemo")
+            .accessibility(.afterFirstUnlock)
+            .synchronizable(true)
     }
 
     func isAuthorized(user: String, with password: String) -> Bool {

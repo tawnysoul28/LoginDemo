@@ -1,0 +1,20 @@
+PODS:
+  - KeychainAccess (3.2.0)
+  - SnapKit (4.2.0)
+
+DEPENDENCIES:
+  - KeychainAccess (= 3.2.0)
+  - SnapKit (= 4.2.0)
+
+SPEC REPOS:
+  trunk:
+    - KeychainAccess
+    - SnapKit
+
+SPEC CHECKSUMS:
+  KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+
+PODFILE CHECKSUM: fcb45e676bbefe37ef7ec3551c609d898fb6daf0
+
+COCOAPODS: 1.8.4

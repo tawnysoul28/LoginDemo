@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		4014E122237FB2B300A7D917 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014E121237FB2B300A7D917 /* AuthService.swift */; };
 		4014E124237FD3F300A7D917 /* ScrolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014E123237FD3F300A7D917 /* ScrolVC.swift */; };
-		40690B3A239171ED007ADCF1 /* Keychain+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40690B39239171ED007ADCF1 /* Keychain+Dictionary.swift */; };
+		40690B3E23923718007ADCF1 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40690B3C23923718007ADCF1 /* Storage.swift */; };
+		40690B3F23923718007ADCF1 /* Keychain+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40690B3D23923718007ADCF1 /* Keychain+Dictionary.swift */; };
+		40690B4123923723007ADCF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40690B4023923723007ADCF1 /* User.swift */; };
 		40B667AB238D6B46002A8941 /* LoginDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40B667A9238D6B46002A8941 /* LoginDataModel.xcdatamodeld */; };
-		40B667AF238D6E94002A8941 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B667AE238D6E94002A8941 /* LoginUser.swift */; };
 		40B667E823903611002A8941 /* RetirementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B667E723903611002A8941 /* RetirementVC.swift */; };
 		40B667EA23903635002A8941 /* RetirementPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B667E923903635002A8941 /* RetirementPresenter.swift */; };
 		40B667EC23903643002A8941 /* DeathVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B667EB23903643002A8941 /* DeathVC.swift */; };
@@ -38,9 +39,10 @@
 		3009D120FE7158F652246D78 /* Pods-LoginDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginDemo.debug.xcconfig"; path = "Target Support Files/Pods-LoginDemo/Pods-LoginDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4014E121237FB2B300A7D917 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4014E123237FD3F300A7D917 /* ScrolVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrolVC.swift; sourceTree = "<group>"; };
-		40690B39239171ED007ADCF1 /* Keychain+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keychain+Dictionary.swift"; sourceTree = "<group>"; };
+		40690B3C23923718007ADCF1 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		40690B3D23923718007ADCF1 /* Keychain+Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keychain+Dictionary.swift"; sourceTree = "<group>"; };
+		40690B4023923723007ADCF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		40B667AA238D6B46002A8941 /* LoginDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoginDataModel.xcdatamodel; sourceTree = "<group>"; };
-		40B667AE238D6E94002A8941 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		40B667E723903611002A8941 /* RetirementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetirementVC.swift; sourceTree = "<group>"; };
 		40B667E923903635002A8941 /* RetirementPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetirementPresenter.swift; sourceTree = "<group>"; };
 		40B667EB23903643002A8941 /* DeathVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathVC.swift; sourceTree = "<group>"; };
@@ -91,10 +93,19 @@
 			children = (
 				4014E121237FB2B300A7D917 /* AuthService.swift */,
 				40B667F523916328002A8941 /* IRouter.swift */,
-				40690B39239171ED007ADCF1 /* Keychain+Dictionary.swift */,
 				40B667F72391657F002A8941 /* DateFormatter+Formats.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		40690B3B23923718007ADCF1 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				40690B3C23923718007ADCF1 /* Storage.swift */,
+				40690B3D23923718007ADCF1 /* Keychain+Dictionary.swift */,
+				40690B4023923723007ADCF1 /* User.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		40B667DF239029E8002A8941 /* Onboarding */ = {
@@ -191,6 +202,7 @@
 		40B8A4AB237ADFFF009AD74F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				40690B3B23923718007ADCF1 /* Storage */,
 				4014E120237FB2A500A7D917 /* Service */,
 				40B8A4AC237AE007009AD74F /* Application */,
 				40B8A4AD237AE013009AD74F /* Modules */,
@@ -217,7 +229,6 @@
 				40B667E323903559002A8941 /* Death */,
 				40B667E423903562002A8941 /* Calendar */,
 				4014E123237FD3F300A7D917 /* ScrolVC.swift */,
-				40B667AE238D6E94002A8941 /* LoginUser.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -338,13 +349,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				40B8A4B8237AE180009AD74F /* HomePresenter.swift in Sources */,
-				40690B3A239171ED007ADCF1 /* Keychain+Dictionary.swift in Sources */,
 				40B667E823903611002A8941 /* RetirementVC.swift in Sources */,
+				40690B3F23923718007ADCF1 /* Keychain+Dictionary.swift in Sources */,
 				40B667EE2390371F002A8941 /* DeathPresenter.swift in Sources */,
 				4014E124237FD3F300A7D917 /* ScrolVC.swift in Sources */,
 				40B667F22390373C002A8941 /* CalendarPresenter.swift in Sources */,
 				40B667F623916328002A8941 /* IRouter.swift in Sources */,
 				40B8A4B0237AE082009AD74F /* OnboardingPresenter.swift in Sources */,
+				40690B3E23923718007ADCF1 /* Storage.swift in Sources */,
 				40B8A49C237ADF2B009AD74F /* OnboardingVC.swift in Sources */,
 				40B8A4B6237AE16E009AD74F /* HomeVC.swift in Sources */,
 				40B667EA23903635002A8941 /* RetirementPresenter.swift in Sources */,
@@ -355,8 +367,8 @@
 				4014E122237FB2B300A7D917 /* AuthService.swift in Sources */,
 				40B667AB238D6B46002A8941 /* LoginDataModel.xcdatamodeld in Sources */,
 				40B667F02390372D002A8941 /* CalendarVC.swift in Sources */,
-				40B667AF238D6E94002A8941 /* LoginUser.swift in Sources */,
 				40B667F82391657F002A8941 /* DateFormatter+Formats.swift in Sources */,
+				40690B4123923723007ADCF1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

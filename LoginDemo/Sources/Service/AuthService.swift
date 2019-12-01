@@ -3,35 +3,30 @@ import KeychainAccess
 class AuthService {
     
     private let kUsersKey = "Users"
-    private let kCurrentUserKey = "currentUser"
     
-    private(set) var currentUser: String? {
+    private(set) var currentUser: User? {
         get {
-            return self.storage.string(forKey: self.kCurrentUserKey)
+            return self.storage.currentUser
         }
         set {
-            self.storage.set(newValue, forKey: self.kCurrentUserKey)
+            self.storage.currentUser = newValue
         }
     }
     
     var aurorized: Bool { return self.currentUser != nil }
 
-    private let storage: UserDefaults
-    private let keychain: Keychain
+    private let storage: Storage
     
     //заменить на аус дата для реалма
     
-    init(storage: UserDefaults) {
+    init(storage: Storage) {
         self.storage = storage
-        
-        self.keychain = Keychain(service: "com.bob.logindemo")
-            .accessibility(.afterFirstUnlock)
-            .synchronizable(true)
     }
 
     func isAuthorized(user: String, with password: String) -> Bool {
-        guard let users = self.storage.dictionary(forKey: self.kUsersKey) else { return false }
-        guard let password = users[user] as? String, password == password else { return false }
+        guard let user = self.storage.user(with: user), user.password == password else {
+            return false
+        }
         
         self.currentUser = user
         return true
@@ -41,15 +36,19 @@ class AuthService {
         self.currentUser = nil
     }
     
-    func register(user: String?, password: String?) -> Bool {
-        guard let user = user, let password = password else { return false }
-        guard !user.isEmpty && !password.isEmpty else { return false }
+    func register(name: String,
+                  password: String,
+                  birthDate: Date,
+                  gender: Gender
+                  ) -> Bool {
         
-        var users = self.storage.dictionary(forKey: self.kUsersKey) ?? [:]
-        users[user] = password
-        storage.set(users, forKey: self.kUsersKey)
+        let user1 = User(password: password, name: name, birthDate: birthDate , gender: gender)
         
-        self.currentUser = user
+        var users = self.storage.loadUsers()
+        users.append(user1)
+        self.storage.save(users: users)
+
+        self.currentUser = user1
         return true
     }
     

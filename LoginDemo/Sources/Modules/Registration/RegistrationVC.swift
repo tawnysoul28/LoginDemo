@@ -7,6 +7,10 @@ final class RegistrationVC: UIViewController, IRouter {
     @IBOutlet weak var registLoginText: UITextField!
     @IBOutlet weak var registPasswordText: UITextField!
     @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var registerGenderText: UITextField!
+    
+    
+
     
     //ВОПРОС 1. КАК ПРАВИЛЬНО СДЕЛАТЬ ПРЕЗЕНТЕР?
     //MARK: - Module state
@@ -32,18 +36,33 @@ final class RegistrationVC: UIViewController, IRouter {
         
         let todayDate = Date()
         pickerBirthday.maximumDate = todayDate
+        
+        pickerBirthday.addTarget(self, action: #selector(birtdateChanged), for: .valueChanged)
     }
     
     //MARK: - User actions
     @IBAction func registerSignUpButton(_ sender: Any) {
-        guard self.authService.register(user: self.registLoginText.text,
-                                        password: self.registPasswordText.text) else {
+        guard let name = self.registLoginText.text, !name.isEmpty,
+                let password = self.registPasswordText.text, !password.isEmpty,
+                let gender = Gender(rawValue: self.registerGenderText.text ?? "")
+        else {
             self.showAlert(title: "Alert", message: "All fields are requaried to fill in")
             return
         }
         
+        guard self.authService.register(name: name,
+                                        password: password,
+                                        birthDate: pickerBirthday.date,
+                                        gender: gender) else { return }
 //        let birthDateInput = pickerBirthday.date //сохранение даты
-        
         self.pushVC("HomeVC")
+    }
+    
+    @objc
+    private func birtdateChanged() {
+//        self.birthdayLabel.text = "\(self.pickerBirthday.date)"
+        
+        let string = DateFormatter.short.string(from: pickerBirthday.date)
+        self.birthdayLabel.text = string
     }
 }

@@ -6,7 +6,7 @@ class AppContainer {
         return AuthService(storage: self.storage)
     }()
     
-    private let storage = UserDefaults.standard
+    private let storage = Storage()
     
     private init() {
         

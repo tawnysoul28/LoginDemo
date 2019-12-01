@@ -9,7 +9,7 @@ final class OnboardingPresenter {
     }
  
     func onSignInTapEvent(login: String, password: String) {
-        if self.authService.isAuthorized(user: login, with: login) {
+        if self.authService.isAuthorized(user: login, with: password) {
             self.view?.pushVC("HomeVC")
         } else {
             self.view?.showAlert(title: "Warning!", message: "Login or password isn't matching")

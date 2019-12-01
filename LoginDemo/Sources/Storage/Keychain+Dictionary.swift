@@ -35,11 +35,13 @@ extension Dictionary {
         }
         return ""
     }
-
 }
 
 extension String {
     //JSONstring to dictionatry
+    
+    
+    
     var dictionary: [String : String] {
         let defaultResult = [String: String]()
         guard let data = self.data(using: .utf8) else {

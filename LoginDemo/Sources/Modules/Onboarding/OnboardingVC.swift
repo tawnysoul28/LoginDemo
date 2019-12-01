@@ -39,7 +39,6 @@ final class OnboardingVC: UIViewController {
     
     @IBAction func signUpButton(_ sender: Any) {
     }
-    
 }
 
 extension OnboardingVC: IRouter {
@@ -64,11 +63,4 @@ extension OnboardingVC: IRouter {
     func stopTime() {
         self.timer?.invalidate()
     }
-    
-    func goToRegistration() {
-    }
-    
-    func goToHome() {
-    }
-    
 }

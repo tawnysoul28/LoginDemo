@@ -11,6 +11,8 @@ class HomeVC: UIViewController, IRouter {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         if let user = self.authService.currentUser {
             self.usernameLabel.text = "Привет, \(user.name). Твой точный возраст:"
             self.currentAge.text = "\(getAgeFromDOF(date: user.birthDate))"

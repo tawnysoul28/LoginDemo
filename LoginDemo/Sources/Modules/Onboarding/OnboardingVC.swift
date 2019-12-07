@@ -1,4 +1,3 @@
-// ВОПРОС 1. КАК ПРИВЯЗАТЬ РЕАЛМ ИЛИ КОРДАТУ.
 // ВОПРОС 2. КАК ОТ СКРОЛЛ ВС СДЕЛАТЬ КАЛЕНДАРЬ ВС.
 
 final class OnboardingVC: UIViewController {
@@ -30,8 +29,6 @@ final class OnboardingVC: UIViewController {
     //MARK: - User actions
     @IBAction func signInButton(_ sender: Any) {
         let loginUserInput = loginText.text ?? ""
-//        let user = User(login: loginUserInput, birthDate: <#Date#>) //это сохранять в бд
-//        let todayDate = Date()
         let passwordUserInput = passwordText.text ?? ""
         presenter.onSignInTapEvent(login: loginUserInput, password: passwordUserInput)
      

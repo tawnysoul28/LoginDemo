@@ -15,5 +15,4 @@ final class OnboardingPresenter {
             self.view?.showAlert(title: "Warning!", message: "Login or password isn't matching")
         }
     }
-    
 }

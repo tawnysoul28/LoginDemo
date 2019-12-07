@@ -1,11 +1,19 @@
 import UIKit
 
+protocol IHomeVC: AnyObject {
+    func updateQuote(text: String)
+}
+
 class HomeVC: UIViewController, IRouter {
+    
+    //MARK: - Module state
+    private lazy var presenter: HomePresenter = { return AppContainer.shared.presenter(for: self) }()
+    
     private var timer: Timer?
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var currentAge: UILabel!
-    
+    @IBOutlet weak var qouteLabel: UILabel!
     
     private var authService: AuthService { return AppContainer.shared.authService }
     
@@ -33,9 +41,12 @@ class HomeVC: UIViewController, IRouter {
         
         self.showRoot("OnboardingVC")
     }
+    @IBAction func quoteAction(_ sender: Any) {
+        self.presenter.onQouteButtonEvent()
+    }
 }
 
-extension HomeVC {
+extension HomeVC: IHomeVC {
     
     func getAgeFromDOF(date: Date) -> (String) {
         
@@ -67,5 +78,10 @@ extension HomeVC {
     func stopTime() {
         self.timer?.invalidate()
         self.timer = nil
+    }
+    
+    
+    func updateQuote(text: String) {
+        self.qouteLabel.text = text
     }
 }

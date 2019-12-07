@@ -22,4 +22,7 @@ class AppContainer {
         return OnboardingPresenter(view: vc, authService: self.authService)
     }
     
+    func presenter(for vc: HomeVC) -> HomePresenter {
+        return HomePresenter(view: vc, authService: self.authService)
+    }
 }

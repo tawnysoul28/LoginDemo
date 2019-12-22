@@ -39,10 +39,11 @@ class AuthService {
     func register(name: String,
                   password: String,
                   birthDate: Date,
-                  gender: Gender
+                  gender: Gender,
+                  habit: String
                   ) -> Bool {
         
-        let user1 = User(password: password, name: name, birthDate: birthDate , gender: gender)
+        let user1 = User(password: password, name: name, birthDate: birthDate , gender: gender, habit: habit)
         
         var users = self.storage.loadUsers()
         users.append(user1)
@@ -51,5 +52,9 @@ class AuthService {
         self.currentUser = user1
         return true
     }
+    
+//    func registerHabit(habit: String) -> Bool {
+//        
+//    }
     
 }

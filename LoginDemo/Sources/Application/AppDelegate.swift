@@ -1,3 +1,4 @@
+import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -7,6 +8,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         self.authIfNedded()
+        
+        let center = UNUserNotificationCenter.current()
+        
+        // Шаг 1: Спросить разрешения
+        center.requestAuthorization(options: [.alert, .sound])
+        { (granted, error) in
+            //если юзер отказывается, здесь можно написать, что включить можно в настройках
+        }
         
         return true
     }

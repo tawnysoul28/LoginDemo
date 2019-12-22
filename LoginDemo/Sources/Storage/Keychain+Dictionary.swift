@@ -9,6 +9,7 @@ extension Keychain {
             
         }
     }
+//    func set1(dictionary: nil)
     
     func get(dictionary: [String : String], for key: String) -> [String : String] {
         do {
@@ -39,9 +40,6 @@ extension Dictionary {
 
 extension String {
     //JSONstring to dictionatry
-    
-    
-    
     var dictionary: [String : String] {
         let defaultResult = [String: String]()
         guard let data = self.data(using: .utf8) else {

@@ -12,7 +12,6 @@ class Storage {
         
         self.keychain = Keychain(service: "com.bob.logindemo")
             .accessibility(.afterFirstUnlock)
-            .synchronizable(true)
     }
     
     //Хранение всех юзеров в массиве [User], который также сериализируется/десериализируется в Keychain

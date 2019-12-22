@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4014E122237FB2B300A7D917 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014E121237FB2B300A7D917 /* AuthService.swift */; };
 		4014E124237FD3F300A7D917 /* ScrolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014E123237FD3F300A7D917 /* ScrolVC.swift */; };
+		401A476E23ABB72400CC54D4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401A476D23ABB72400CC54D4 /* WebKit.framework */; };
+		401A477223ABBAAA00CC54D4 /* Facts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 401A477123ABBAAA00CC54D4 /* Facts.strings */; };
 		40690B3E23923718007ADCF1 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40690B3C23923718007ADCF1 /* Storage.swift */; };
 		40690B3F23923718007ADCF1 /* Keychain+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40690B3D23923718007ADCF1 /* Keychain+Dictionary.swift */; };
 		40690B4123923723007ADCF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40690B4023923723007ADCF1 /* User.swift */; };
@@ -40,6 +42,8 @@
 		3009D120FE7158F652246D78 /* Pods-LoginDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginDemo.debug.xcconfig"; path = "Target Support Files/Pods-LoginDemo/Pods-LoginDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4014E121237FB2B300A7D917 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4014E123237FD3F300A7D917 /* ScrolVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrolVC.swift; sourceTree = "<group>"; };
+		401A476D23ABB72400CC54D4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		401A477123ABBAAA00CC54D4 /* Facts.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Facts.strings; sourceTree = "<group>"; };
 		40690B3C23923718007ADCF1 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		40690B3D23923718007ADCF1 /* Keychain+Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keychain+Dictionary.swift"; sourceTree = "<group>"; };
 		40690B4023923723007ADCF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				401A476E23ABB72400CC54D4 /* WebKit.framework in Frameworks */,
 				C7D074C2E8541308ABA8504D /* libPods-LoginDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +247,7 @@
 				40B8A49D237ADF2C009AD74F /* Main.storyboard */,
 				40B8A4A0237ADF2C009AD74F /* Assets.xcassets */,
 				40B8A4A2237ADF2C009AD74F /* LaunchScreen.storyboard */,
+				401A477123ABBAAA00CC54D4 /* Facts.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 		F1C6B83AAB52E4B8BFEC45D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				401A476D23ABB72400CC54D4 /* WebKit.framework */,
 				273E457859BC86441518197A /* libPods-LoginDemo.a */,
 			);
 			name = Frameworks;
@@ -315,6 +322,7 @@
 			files = (
 				40B8A4A4237ADF2C009AD74F /* LaunchScreen.storyboard in Resources */,
 				40B8A4A1237ADF2C009AD74F /* Assets.xcassets in Resources */,
+				401A477223ABBAAA00CC54D4 /* Facts.strings in Resources */,
 				40B8A49F237ADF2C009AD74F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,9 +12,9 @@ final class NetworkManager {
         self.session = URLSession(configuration: sessionConfiguration)
     }}
 
-extension NetworkManager {
+extension NetworkManager: INetworkManager {
     
-    func loadQuote(_  completion: @escaping (Result<String, Error>) -> Void) {
+    func loadQuote(_ completion: @escaping (Result<String, Error>) -> Void) {
         
         let request = NSMutableURLRequest(url: NSURL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&format=text")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
@@ -35,8 +35,6 @@ extension NetworkManager {
         
         dataTask.resume()
     }
-
-    
 }
 
 

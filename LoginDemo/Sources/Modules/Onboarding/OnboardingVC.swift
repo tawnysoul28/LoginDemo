@@ -15,6 +15,7 @@ final class OnboardingVC: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Welcome to Your Time"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,7 +32,6 @@ final class OnboardingVC: UIViewController {
         let loginUserInput = loginText.text ?? ""
         let passwordUserInput = passwordText.text ?? ""
         presenter.onSignInTapEvent(login: loginUserInput, password: passwordUserInput)
-     
     }
     
     @IBAction func signUpButton(_ sender: Any) {
@@ -41,7 +41,9 @@ final class OnboardingVC: UIViewController {
 extension OnboardingVC: IRouter {
     
     @objc func updateTime() {
-        let string = DateFormatter.medium.string(from: Date())
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "HH:mm:ss dd-MM-yyyy"
+        let string = dateFormatterGet.string(from: Date())
         self.timeLabel.text = string
     }
     
@@ -60,5 +62,4 @@ extension OnboardingVC: IRouter {
     func stopTime() {
         self.timer?.invalidate()
     }
-    ////////////////////////////////////////
 }

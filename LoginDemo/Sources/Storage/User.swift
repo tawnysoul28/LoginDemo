@@ -1,11 +1,3 @@
-//
-//  User.swift
-//  LoginDemo
-//
-//  Created by Bob on 30/11/2019.
-//  Copyright © 2019 Bob. All rights reserved.
-//
-
 import Foundation
 
 struct User: Codable {
@@ -13,6 +5,7 @@ struct User: Codable {
     let name: String
     let birthDate: Date
     let gender: Gender
+    var habit: String
 }
 
 enum Gender: String, Codable {

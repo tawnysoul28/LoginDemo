@@ -24,6 +24,9 @@ class HomeVC: UIViewController, IRouter {
             self.usernameLabel.text = "Привет, \(user.name). Твой точный возраст:"
             self.currentAge.text = "\(getAgeFromDOF(date: user.birthDate))"
         }
+        self.presenter.onQouteButtonEvent()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

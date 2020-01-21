@@ -16,6 +16,8 @@ final class OnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Welcome to Your Time"
+        loginText.delegate = self
+        passwordText.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,5 +63,13 @@ extension OnboardingVC: IRouter {
     
     func stopTime() {
         self.timer?.invalidate()
+    }
+}
+
+extension OnboardingVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginText.resignFirstResponder()
+        passwordText.resignFirstResponder()
+        return true
     }
 }

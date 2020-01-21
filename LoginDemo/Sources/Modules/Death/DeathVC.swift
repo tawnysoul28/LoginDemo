@@ -16,13 +16,15 @@ final class DeathVC: UIViewController, IRouter {
     @IBOutlet weak var deathAgeLabel: UILabel!
     
     private var authService: AuthService { return AppContainer.shared.authService }
-    private var storage = AppContainer.shared.storage
+    private let storage = AppContainer.shared.storage
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.updateLabel()
         self.loadHabit()
+        
+        habitText.delegate = self
 
     }
     
@@ -56,6 +58,10 @@ final class DeathVC: UIViewController, IRouter {
         
         updateHabit()
     }
+    
+//    @IBAction func deathTap(_ sender: Any) {
+//        habitText.resignFirstResponder()
+//    }
 }
 
 extension DeathVC {
@@ -166,5 +172,12 @@ extension DeathVC {
     func stopTime() {
         self.timer?.invalidate()
         self.timer = nil
+    }
+}
+
+extension DeathVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        habitText.resignFirstResponder()
+        return true
     }
 }

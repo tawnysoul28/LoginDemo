@@ -40,7 +40,7 @@ class AuthService {
                   password: String,
                   birthDate: Date,
                   gender: Gender,
-                  habit: String
+                  habit: String = ""
                   ) -> Bool {
         
         let user1 = User(password: password, name: name, birthDate: birthDate , gender: gender, habit: habit)

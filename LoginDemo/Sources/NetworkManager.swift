@@ -15,6 +15,7 @@ final class NetworkManager {
 extension NetworkManager: INetworkManager {
     
     func loadQuote(_ completion: @escaping (Result<String, Error>) -> Void) {
+        //"uselessfacts.jsph.pl/random.txt?language=en"
         
         let request = NSMutableURLRequest(url: NSURL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&format=text")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,

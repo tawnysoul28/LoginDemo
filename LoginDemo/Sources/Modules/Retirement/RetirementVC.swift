@@ -6,12 +6,11 @@ let retirementAgeF = 60
 final class RetiremnetVC: UIViewController, IRouter {
     
     @IBOutlet weak var retirementAgeLabel: UILabel!
-    
     @IBOutlet weak var factLabel: UILabel!
     
     private var timer: Timer?
     private var authService: AuthService { return AppContainer.shared.authService }
-    private let stringsService = RetirementPresenter()
+    private let factsService = RetirementPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,19 +52,8 @@ extension RetiremnetVC {
             age = getAgeTillRet(birthDay: user.birthDate, years: retirementAgeF)
         }
         
-        let rublesPerYearExtra = 100 * 365
-        let rublesPerYearSmoke = 29869
-        
-        let extraMoneySave = age * rublesPerYearExtra
-        let smokeMoneySave = age * rublesPerYearSmoke
-        
-        let stringFormat = "К этому времени у вас будет %d дополнительных рублей, если сегодня вы начнете откладывать 100 рублей каждый день. \nПлюс около %d рублей, если вы бросите курить."
-        
-        let tuple = self.stringsService.nextString()
-        self.factLabel.text = String(format: tuple.string, extraMoneySave)
-        
-//        factLabel.text = String(format: stringFormat, extraMoneySave, smokeMoneySave)
-        
+        let fact = self.factsService.nextFact()
+        self.factLabel.text = fact.title(for: age)
     }
     
 //    func didTapButton() {

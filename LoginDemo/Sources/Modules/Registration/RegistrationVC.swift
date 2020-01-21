@@ -28,14 +28,17 @@ final class RegistrationVC: UIViewController, IRouter {
         pickerBirthday.addTarget(self, action: #selector(birtdateChanged), for: .valueChanged)
         
         title = "Registration"
+        
+        registLoginText.delegate = self
+        registPasswordText.delegate = self
+        registerGenderText.delegate = self
     }
     
     //MARK: - User actions
     @IBAction func registerSignUpButton(_ sender: Any) {
         guard let name = self.registLoginText.text, !name.isEmpty,
                 let password = self.registPasswordText.text, !password.isEmpty,
-                let gender = Gender(rawValue: self.registerGenderText.text ?? ""),
-                let habit: String = ""
+                let gender = Gender(rawValue: self.registerGenderText.text ?? "")
         else {
             self.showAlert(title: "Alert", message: "All fields are requaried to fill in")
             return
@@ -44,8 +47,7 @@ final class RegistrationVC: UIViewController, IRouter {
         guard self.authService.register(name: name,
                                         password: password,
                                         birthDate: pickerBirthday.date,
-                                        gender: gender,
-                                        habit: habit) else { return }
+                                        gender: gender) else { return }
         self.pushVC("HomeVC")
     }
     
@@ -56,5 +58,14 @@ final class RegistrationVC: UIViewController, IRouter {
         dateFormatterGet.dateFormat = "dd-MM-yyyy"
         let string = dateFormatterGet.string(from: pickerBirthday.date)
         self.birthdayLabel.text = string
+    }
+}
+
+extension RegistrationVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        registLoginText.resignFirstResponder()
+        registPasswordText.resignFirstResponder()
+        registerGenderText.resignFirstResponder()
+        return true
     }
 }

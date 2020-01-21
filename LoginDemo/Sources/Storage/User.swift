@@ -1,6 +1,6 @@
 import Foundation
 
-struct User: Codable {
+struct User: Codable, Equatable {
     let password: String
     let name: String
     let birthDate: Date
